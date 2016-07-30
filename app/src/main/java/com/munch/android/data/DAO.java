@@ -19,7 +19,7 @@ public class DAO {
         return ourInstance;
     }
 
-    private Firebase firebaseRef = new Firebase("https://luminous-fire-3016.firebaseio.com");
+    private Firebase firebaseRef = new Firebase("https://munch-1a47a.firebaseio.com/");
 
     private DAO() {
     }
