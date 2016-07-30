@@ -13,8 +13,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.firebase.client.Firebase;
 import com.mealshare.android.event.Event;
 import com.mealshare.android.flow.MealshareFlow;
+import com.mealshare.android.model.User;
 import com.mealshare.android.view.ViewFragment;
 
 public class MainActivity extends AppCompatActivity
