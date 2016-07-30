@@ -1,10 +1,10 @@
-package com.mealshare.android.data;
+package com.munch.android.data;
 
 import com.facebook.AccessToken;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.firebase.client.Firebase;
-import com.mealshare.android.model.User;
+import com.munch.android.model.User;
 
 import org.json.JSONObject;
 

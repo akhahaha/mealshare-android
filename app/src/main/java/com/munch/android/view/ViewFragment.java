@@ -1,9 +1,9 @@
-package com.mealshare.android.view;
+package com.munch.android.view;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 
-import com.mealshare.android.event.Event;
+import com.munch.android.event.Event;
 
 /**
  * A simple {@link Fragment} subclass.

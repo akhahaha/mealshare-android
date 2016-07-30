@@ -1,10 +1,10 @@
-package com.mealshare.android.flow;
+package com.munch.android.flow;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
 
-import com.mealshare.android.event.Event;
+import com.munch.android.event.Event;
 
 /**
  * Presentation controller base class

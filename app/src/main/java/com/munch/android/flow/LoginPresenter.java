@@ -1,14 +1,14 @@
-package com.mealshare.android.flow;
+package com.munch.android.flow;
 
 import android.content.Context;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
 
-import com.mealshare.android.R;
-import com.mealshare.android.event.Event;
-import com.mealshare.android.event.FacebookLoginEvent;
-import com.mealshare.android.view.LoginFragment;
+import com.munch.android.R;
+import com.munch.android.event.Event;
+import com.munch.android.event.FacebookLoginEvent;
+import com.munch.android.view.LoginFragment;
 
 /**
  * Login presenter

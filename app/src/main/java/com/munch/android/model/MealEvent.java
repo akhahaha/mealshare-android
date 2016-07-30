@@ -1,4 +1,4 @@
-package com.mealshare.android.model;
+package com.munch.android.model;
 
 import java.util.Date;
 

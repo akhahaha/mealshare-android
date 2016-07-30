@@ -1,4 +1,4 @@
-package com.mealshare.android.event;
+package com.munch.android.event;
 
 /**
  * Event base class

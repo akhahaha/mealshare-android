@@ -1,4 +1,4 @@
-package com.mealshare.android.view;
+package com.munch.android.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,8 +10,8 @@ import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-import com.mealshare.android.R;
-import com.mealshare.android.event.FacebookLoginEvent;
+import com.munch.android.R;
+import com.munch.android.event.FacebookLoginEvent;
 
 /**
  * A simple {@link ViewFragment} subclass.

@@ -1,10 +1,10 @@
-package com.mealshare.android.flow;
+package com.munch.android.flow;
 
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 import android.view.KeyEvent;
 
-import com.mealshare.android.event.Event;
+import com.munch.android.event.Event;
 
 /**
  * Fragment flow controller

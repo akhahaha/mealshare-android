@@ -1,4 +1,4 @@
-package com.mealshare.android;
+package com.munch.android;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,15 +17,15 @@ import android.view.View;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
 import com.firebase.client.Firebase;
-import com.mealshare.android.event.Event;
-import com.mealshare.android.flow.MealshareFlow;
-import com.mealshare.android.view.ViewFragment;
+import com.munch.android.event.Event;
+import com.munch.android.flow.MunchFlow;
+import com.munch.android.view.ViewFragment;
 
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         ViewFragment.OnFragmentInteractionListener {
-    private MealshareFlow mealshareFlow;
+    private MunchFlow munchFlow;
     public static CallbackManager callbackManager;
 
 
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         // Setup flow controller
-        mealshareFlow = new MealshareFlow(this, R.id.main_fragment_placeholder);
+        munchFlow = new MunchFlow(this, R.id.main_fragment_placeholder);
     }
 
     @Override
@@ -122,7 +122,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onFragmentInteraction(Event event) {
-        mealshareFlow.handleEvent(event);
+        munchFlow.handleEvent(event);
     }
 
     @Override

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mealshare.android.view.LoginFragment">
+    tools:context="com.munch.android.view.LoginFragment">
 
     <com.facebook.login.widget.LoginButton
         android:id="@+id/fb_login_button"

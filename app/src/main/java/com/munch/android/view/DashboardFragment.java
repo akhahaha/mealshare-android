@@ -1,4 +1,4 @@
-package com.mealshare.android.view;
+package com.munch.android.view;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
-import com.mealshare.android.R;
-import com.mealshare.android.model.MealEvent;
+import com.munch.android.R;
+import com.munch.android.model.MealEvent;
 
 import java.util.ArrayList;
 import java.util.List;
