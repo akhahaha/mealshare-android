@@ -23,7 +23,13 @@ public class MealCreationPresenter extends Presenter {
 
     @Override
     public boolean handleEvent(KeyEvent event) {
-        return false;
+        switch (event.getKeyCode()) {
+            case KeyEvent.KEYCODE_BACK:
+                pop();
+                return true;
+            default:
+                return false;
+        }
     }
 
     @Override
