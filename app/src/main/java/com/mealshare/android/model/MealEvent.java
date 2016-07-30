@@ -16,6 +16,9 @@ public class MealEvent {
     private Integer partyMin;
     private Integer partyMax;
 
+    public MealEvent() {
+    }
+
     public MealEvent(Integer id, String hostID, String restaurantID, Date start, Date end,
                      Integer priceTier, Integer partyMin, Integer partyMax) {
         this.id = id;

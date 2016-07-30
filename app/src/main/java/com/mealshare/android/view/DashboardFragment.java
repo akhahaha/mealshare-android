@@ -4,8 +4,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.mealshare.android.R;
+import com.mealshare.android.model.MealEvent;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Dashboard fragment
@@ -15,6 +20,8 @@ public class DashboardFragment extends ViewFragment {
     private static final String ARG_CURR_UID = "ARG_CURR_UID";
 
     private String currUID;
+
+    private View rootView;
 
     public DashboardFragment() {
         // Required empty public constructor
@@ -46,7 +53,23 @@ public class DashboardFragment extends ViewFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dashboard, container, false);
-    }
+        rootView = inflater.inflate(R.layout.fragment_dashboard, container, false);
 
+        final ListView myMealsList =
+                (ListView) rootView.findViewById(R.id.dashboard_my_meals_list);
+
+        // TODO: Populate MyMeals
+        List<MealEvent> myMeals = new ArrayList<>();
+        MealEvent event = new MealEvent();
+        event.setId(1234);
+        myMeals.add(event);
+        event = new MealEvent();
+        event.setId(1235);
+        myMeals.add(event);
+
+        MealEventArrayAdapter myMealsAdapter = new MealEventArrayAdapter(getContext(), myMeals);
+        myMealsList.setAdapter(myMealsAdapter);
+
+        return rootView;
+    }
 }
