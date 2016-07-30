@@ -40,11 +40,11 @@ public class DAO {
      */
     public void upsertFacebookUser(AccessToken accessToken) {
         GraphRequest.newMeRequest(accessToken, new GraphRequest.GraphJSONObjectCallback() {
-                    @Override
-                    public void onCompleted(JSONObject fbUser, GraphResponse graphResponse) {
-                        User user = new User((fbUser.optString("name")), fbUser.optString("id"));
-                        firebaseRef.setValue(user);
-                    }
-                }).executeAsync();
+            @Override
+            public void onCompleted(JSONObject fbUser, GraphResponse graphResponse) {
+                User user = new User((fbUser.optString("name")), fbUser.optString("id"));
+                firebaseRef.setValue(user);
+            }
+        }).executeAsync();
     }
 }

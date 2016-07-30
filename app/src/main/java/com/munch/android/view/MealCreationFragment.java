@@ -14,6 +14,8 @@ import com.munch.android.R;
  * create an instance of this fragment.
  */
 public class MealCreationFragment extends ViewFragment {
+    private View rootView;
+
     public MealCreationFragment() {
         // Required empty public constructor
     }
@@ -41,6 +43,8 @@ public class MealCreationFragment extends ViewFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_meal_creation, container, false);
+        rootView = inflater.inflate(R.layout.fragment_meal_creation, container, false);
+
+        return rootView;
     }
 }

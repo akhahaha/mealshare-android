@@ -69,9 +69,11 @@ public class DashboardFragment extends ViewFragment {
         List<MealEvent> myMeals = new ArrayList<>();
         MealEvent event = new MealEvent();
         event.setId(1234);
+        event.setRestaurantID("yelp-san-francisco");
         myMeals.add(event);
         event = new MealEvent();
         event.setId(1235);
+        event.setRestaurantID("urban-curry-san-francisco");
         myMeals.add(event);
 
         final MealEventArrayAdapter myMealsAdapter = new MealEventArrayAdapter(getContext(), myMeals);
