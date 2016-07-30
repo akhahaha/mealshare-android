@@ -10,17 +10,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
-import com.facebook.login.LoginResult;
-import com.facebook.login.widget.LoginButton;
 import com.firebase.client.Firebase;
 import com.mealshare.android.event.Event;
 import com.mealshare.android.flow.MealshareFlow;
@@ -32,51 +27,23 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         ViewFragment.OnFragmentInteractionListener {
     private MealshareFlow mealshareFlow;
-    private LoginButton loginButton;
-    private CallbackManager callbackManager;
+    public static CallbackManager callbackManager;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         FacebookSdk.sdkInitialize(getApplicationContext());
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
         Firebase.setAndroidContext(this);
-        callbackManager = CallbackManager.Factory.create();
-        loginButton = (LoginButton) findViewById(R.id.login_button);
-
-        loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                Log.i("ID/Auth Token", "User ID: " +
-                        loginResult.getAccessToken().getUserId() +
-                        "\n " +
-                        "Auth Token: " +
-                        loginResult.getAccessToken().getToken());
-//                Intent successScreen = new Intent(getApplicationContext(), MainScreen.class);
-//                successScreen.putExtra("access_token", loginResult.getAccessToken().getToken());
-//                successScreen.putExtra("userid", loginResult.getAccessToken().getUserId());
-//                startActivity(successScreen);
-            }
-
-            @Override
-            public void onCancel() {
-//                info.setText("Login Attempted Cancelled");
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-//                info.setText("Login Attempt failed.");
-            }
-        });
-
+        setContentView(R.layout.activity_main);
 
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        // Firebase DB
         Firebase ref = new Firebase("https://luminous-fire-3016.firebaseio.com");
-        User testUser = new User("PERSON", "SOME NAME");
+        User testUser = new User("DEREK", "123445");
         ref.setValue(testUser);
 
 
