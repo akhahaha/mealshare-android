@@ -8,6 +8,7 @@ public class User {
     private String id; // FBID
     private String aboutMe;
 
+
     public User(String id, String aboutMe) {
         this.id = id;
         this.aboutMe = aboutMe;
