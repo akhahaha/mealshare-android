@@ -3,13 +3,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="5dp"
     tools:context=".view.DashboardFragment">
 
-    <ListView
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="MyMeals"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ListView
         android:id="@+id/dashboard_my_meals_list"
-        android:layout_gravity="center_horizontal" />
+        android:layout_width="match_parent"
+        android:layout_height="205dp" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Events I&apos;m Going To"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <ListView
+        android:id="@+id/attending_list"
+        android:layout_width="match_parent"
+        android:layout_height="205dp" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/dashboard_fab_create_meal"
@@ -18,4 +36,5 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
         android:src="@android:drawable/ic_dialog_email" />
+
 </LinearLayout>

@@ -64,6 +64,8 @@ public class DashboardFragment extends ViewFragment {
 
         final ListView myMealsList =
                 (ListView) rootView.findViewById(R.id.dashboard_my_meals_list);
+        final ListView attendingList =
+                (ListView) rootView.findViewById(R.id.attending_list);
 
         // TODO: Populate MyMeals
         List<MealEvent> myMeals = new ArrayList<>();
@@ -75,6 +77,20 @@ public class DashboardFragment extends ViewFragment {
         event.setId(1235);
         event.setRestaurantID("urban-curry-san-francisco");
         myMeals.add(event);
+        event = new MealEvent();
+        event.setId(1235);
+        event.setRestaurantID("kcs-crepes-cafe-los-angeles");
+        myMeals.add(event);
+
+        List<MealEvent> attending = new ArrayList<>();
+        event = new MealEvent();
+        event.setId(1235);
+        event.setRestaurantID("the-cheesecake-factory-san-diego-3");
+        attending.add(event);
+        event = new MealEvent();
+        event.setId(1235);
+        event.setRestaurantID("top-of-the-market-san-diego-2");
+        attending.add(event);
 
         final MealEventArrayAdapter myMealsAdapter = new MealEventArrayAdapter(getContext(), myMeals);
         myMealsList.setAdapter(myMealsAdapter);
@@ -84,6 +100,17 @@ public class DashboardFragment extends ViewFragment {
                                     int position, long id) {
                 notifyListener(new MealSelectEvent(EVENT_MEAL_SELECTED,
                         myMealsAdapter.getItem(position).getId()));
+            }
+        });
+
+        final MealEventArrayAdapter attendingAdapter = new MealEventArrayAdapter(getContext(), attending);
+        attendingList.setAdapter(attendingAdapter);
+        attendingList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                notifyListener(new MealSelectEvent(EVENT_MEAL_SELECTED,
+                        attendingAdapter.getItem(position).getId()));
             }
         });
 
