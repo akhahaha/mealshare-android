@@ -1,4 +1,4 @@
-package android.mealshare.com.mealshare;
+package com.mealshare.android;
 
 import org.junit.Test;
 

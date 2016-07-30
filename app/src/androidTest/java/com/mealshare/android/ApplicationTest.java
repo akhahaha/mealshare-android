@@ -1,4 +1,4 @@
-package android.mealshare.com.mealshare;
+package com.mealshare.android;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
