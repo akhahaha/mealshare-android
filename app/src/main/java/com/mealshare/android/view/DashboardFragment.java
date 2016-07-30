@@ -12,6 +12,9 @@ import com.mealshare.android.R;
  * A simple {@link ViewFragment} subclass.
  */
 public class DashboardFragment extends ViewFragment {
+    private static final String ARG_CURR_UID = "ARG_CURR_UID";
+
+    private String currUID;
 
     public DashboardFragment() {
         // Required empty public constructor
@@ -23,9 +26,10 @@ public class DashboardFragment extends ViewFragment {
      *
      * @return A new instance of fragment DashboardFragment.
      */
-    public static DashboardFragment newInstance() {
+    public static DashboardFragment newInstance(String currUID) {
         DashboardFragment fragment = new DashboardFragment();
         Bundle args = new Bundle();
+        args.putString(ARG_CURR_UID, currUID);
         fragment.setArguments(args);
         return fragment;
     }
@@ -33,6 +37,9 @@ public class DashboardFragment extends ViewFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            currUID = getArguments().getString(ARG_CURR_UID);
+        }
     }
 
     @Override

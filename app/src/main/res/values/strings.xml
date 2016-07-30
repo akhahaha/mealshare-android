@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Mealshare</string>
 
+    <string name="pref_curr_uid">PREF_CURR_UID</string>
+
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 

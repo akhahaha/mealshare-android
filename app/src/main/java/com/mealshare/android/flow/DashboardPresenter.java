@@ -13,8 +13,11 @@ import com.mealshare.android.view.DashboardFragment;
 public class DashboardPresenter extends Presenter {
     private Fragment viewFragment;
 
-    public DashboardPresenter() {
-        this.viewFragment = DashboardFragment.newInstance();
+    private String currUID;
+
+    public DashboardPresenter(String currUID) {
+        this.currUID = currUID;
+        this.viewFragment = DashboardFragment.newInstance(currUID);
     }
 
     @Override
