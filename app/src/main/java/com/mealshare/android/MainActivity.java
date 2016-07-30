@@ -42,9 +42,9 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         // Firebase DB
-        Firebase ref = new Firebase("https://luminous-fire-3016.firebaseio.com");
-        User testUser = new User("DEREK", "123445");
-        ref.setValue(testUser);
+//        Firebase ref = new Firebase("https://luminous-fire-3016.firebaseio.com");
+//        User testUser = new User("DEREK", "123445");
+//        ref.setValue(testUser);
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
