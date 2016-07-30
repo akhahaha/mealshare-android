@@ -27,6 +27,11 @@ public class DashboardPresenter extends Presenter {
     public boolean handleEvent(Event event) {
         Presenter nextPresenter;
         switch (event.getEventTag()) {
+            case DashboardFragment.EVENT_CREATE_MEAL:
+                nextPresenter = new MealCreationPresenter(getContext());
+                nextPresenter.setPrevPresenter(this);
+                notifyListeners(nextPresenter);
+                return true;
             case DashboardFragment.EVENT_MEAL_SELECTED:
                 nextPresenter = new MealEventPresenter(getContext(), currUID,
                         ((MealSelectEvent) event).getEventID());

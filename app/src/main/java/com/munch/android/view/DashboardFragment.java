@@ -1,6 +1,7 @@
 package com.munch.android.view;
 
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.munch.android.R;
+import com.munch.android.event.Event;
 import com.munch.android.event.MealSelectEvent;
 import com.munch.android.model.MealEvent;
 
@@ -19,6 +21,7 @@ import java.util.List;
  * A simple {@link ViewFragment} subclass.
  */
 public class DashboardFragment extends ViewFragment {
+    public static final String EVENT_CREATE_MEAL = "EVENT_CREATE_MEAL";
     public static final String EVENT_MEAL_SELECTED = "EVENT_MEAL_SELECTED";
 
     private static final String ARG_CURR_UID = "ARG_CURR_UID";
@@ -81,6 +84,16 @@ public class DashboardFragment extends ViewFragment {
                         myMealsAdapter.getItem(position).getId()));
             }
         });
+
+        FloatingActionButton fab =
+                (FloatingActionButton) rootView.findViewById(R.id.dashboard_fab_create_meal);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                notifyListener(new Event(EVENT_CREATE_MEAL));
+            }
+        });
+
 
         return rootView;
     }
