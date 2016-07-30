@@ -1,6 +1,5 @@
 package com.munch.android;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -14,7 +13,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
-import com.facebook.CallbackManager;
 import com.facebook.FacebookSdk;
 import com.firebase.client.Firebase;
 import com.munch.android.event.Event;
@@ -26,8 +24,6 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         ViewFragment.OnFragmentInteractionListener {
     private MunchFlow munchFlow;
-    public static CallbackManager callbackManager;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,11 +119,5 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onFragmentInteraction(Event event) {
         munchFlow.handleEvent(event);
-    }
-
-    @Override
-    protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 }

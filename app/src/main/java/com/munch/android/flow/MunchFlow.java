@@ -21,12 +21,14 @@ public class MunchFlow extends FlowController {
         currUID = settings.getString(getActivity().getString(R.string.pref_curr_uid), null);
 
         // Not logged in
-        if (currUID == null) {
-            // Start login and onboarding
-            setPresenter(new LoginPresenter(getActivity()));
-        } else {
-            // Logged in
-            setPresenter(new DashboardPresenter(getActivity(), currUID));
-        }
+//        if (currUID == null) {
+//            // Start login and onboarding
+//            setPresenter(new LoginPresenter(getActivity()));
+//        } else {
+//            // Logged in
+//            setPresenter(new DashboardPresenter(getActivity(), currUID));
+//        }
+
+        setPresenter(new DashboardPresenter(getActivity(), "1234")); // Temporary hardcoded UID
     }
 }
