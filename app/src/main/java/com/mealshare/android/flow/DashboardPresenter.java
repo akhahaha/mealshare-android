@@ -1,5 +1,6 @@
 package com.mealshare.android.flow;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
 
@@ -15,7 +16,8 @@ public class DashboardPresenter extends Presenter {
 
     private String currUID;
 
-    public DashboardPresenter(String currUID) {
+    public DashboardPresenter(Context context, String currUID) {
+        super(context);
         this.currUID = currUID;
         this.viewFragment = DashboardFragment.newInstance(currUID);
     }

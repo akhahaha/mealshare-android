@@ -61,6 +61,4 @@ public class FlowController implements Presenter.OnPresentationChangeListener {
     public void onPresentationChange(Presenter presenter) {
         setPresenter(presenter);
     }
-
-
 }

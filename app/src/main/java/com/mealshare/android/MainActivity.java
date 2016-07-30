@@ -19,7 +19,6 @@ import com.facebook.FacebookSdk;
 import com.firebase.client.Firebase;
 import com.mealshare.android.event.Event;
 import com.mealshare.android.flow.MealshareFlow;
-import com.mealshare.android.model.User;
 import com.mealshare.android.view.ViewFragment;
 
 
@@ -32,20 +31,15 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        FacebookSdk.sdkInitialize(getApplicationContext());
         super.onCreate(savedInstanceState);
-        Firebase.setAndroidContext(this);
-        setContentView(R.layout.activity_main);
 
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        Firebase.setAndroidContext(this);
+
+        setContentView(R.layout.activity_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        // Firebase DB
-//        Firebase ref = new Firebase("https://luminous-fire-3016.firebaseio.com");
-//        User testUser = new User("DEREK", "123445");
-//        ref.setValue(testUser);
-
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -136,5 +130,4 @@ public class MainActivity extends AppCompatActivity
         super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
-
 }

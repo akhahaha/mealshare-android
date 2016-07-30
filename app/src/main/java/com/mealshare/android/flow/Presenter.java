@@ -1,5 +1,6 @@
 package com.mealshare.android.flow;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
 
@@ -10,8 +11,21 @@ import com.mealshare.android.event.Event;
  * Created by Alan on 5/31/2016.
  */
 public abstract class Presenter {
+    private Context context;
     private Presenter prevPresenter;
     private OnPresentationChangeListener listener;
+
+    public Presenter(Context context) {
+        this.context = context;
+    }
+
+    public Context getContext() {
+        return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
 
     public abstract boolean handleEvent(Event event);
 
