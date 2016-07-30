@@ -30,6 +30,11 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        Firebase ref = new Firebase("https://luminous-fire-3016.firebaseio.com");
+        User testUser = new User("PERSON", "SOME NAME");
+        ref.setValue(testUser);
+
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
