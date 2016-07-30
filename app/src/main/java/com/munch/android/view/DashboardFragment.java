@@ -4,9 +4,11 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.munch.android.R;
+import com.munch.android.event.MealSelectEvent;
 import com.munch.android.model.MealEvent;
 
 import java.util.ArrayList;
@@ -17,6 +19,8 @@ import java.util.List;
  * A simple {@link ViewFragment} subclass.
  */
 public class DashboardFragment extends ViewFragment {
+    public static final String EVENT_MEAL_SELECTED = "EVENT_MEAL_SELECTED";
+
     private static final String ARG_CURR_UID = "ARG_CURR_UID";
 
     private String currUID;
@@ -67,8 +71,16 @@ public class DashboardFragment extends ViewFragment {
         event.setId(1235);
         myMeals.add(event);
 
-        MealEventArrayAdapter myMealsAdapter = new MealEventArrayAdapter(getContext(), myMeals);
+        final MealEventArrayAdapter myMealsAdapter = new MealEventArrayAdapter(getContext(), myMeals);
         myMealsList.setAdapter(myMealsAdapter);
+        myMealsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view,
+                                    int position, long id) {
+                notifyListener(new MealSelectEvent(EVENT_MEAL_SELECTED,
+                        myMealsAdapter.getItem(position).getId()));
+            }
+        });
 
         return rootView;
     }

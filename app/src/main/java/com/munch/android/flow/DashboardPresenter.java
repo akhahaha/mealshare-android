@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
 
 import com.munch.android.event.Event;
+import com.munch.android.event.MealSelectEvent;
 import com.munch.android.view.DashboardFragment;
 
 /**
@@ -24,7 +25,17 @@ public class DashboardPresenter extends Presenter {
 
     @Override
     public boolean handleEvent(Event event) {
-        return false;
+        Presenter nextPresenter;
+        switch (event.getEventTag()) {
+            case DashboardFragment.EVENT_MEAL_SELECTED:
+                nextPresenter = new MealEventPresenter(getContext(), currUID,
+                        ((MealSelectEvent) event).getEventID());
+                nextPresenter.setPrevPresenter(this);
+                notifyListeners(nextPresenter);
+                return true;
+            default:
+                return false;
+        }
     }
 
     @Override
