@@ -9,9 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.munch.android.R;
+import com.munch.android.data.APIManager;
 import com.munch.android.model.MealEvent;
-import com.yelp.clientlib.connection.YelpAPI;
-import com.yelp.clientlib.connection.YelpAPIFactory;
 import com.yelp.clientlib.entities.Business;
 
 import java.util.List;
@@ -63,14 +62,8 @@ public class MealEventArrayAdapter extends BaseAdapter {
                 (TextView) convertView.findViewById(R.id.restaurant_name);
         final ImageView thumbnailView = (ImageView) convertView.findViewById(R.id.thumbnail);
 
-        YelpAPIFactory apiFactory = new YelpAPIFactory(
-                consumerKey,
-                consumerSecret,
-                token,
-                tokenSecret);
-        YelpAPI yelpAPI = apiFactory.createAPI();
-        System.out.println("derp");
-        yelpAPI.getBusiness(event.getRestaurantID()).enqueue(new Callback<Business>() {
+        APIManager.getInstance().getYelpAPI()
+                .getBusiness(event.getRestaurantID()).enqueue(new Callback<Business>() {
             @Override
             public void onResponse(Call<Business> call, Response<Business> response) {
                 restaurantNameView.setText(response.body().name());

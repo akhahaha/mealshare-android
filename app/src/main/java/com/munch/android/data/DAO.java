@@ -19,7 +19,7 @@ public class DAO {
         return ourInstance;
     }
 
-    private Firebase firebaseRef = new Firebase("https://munch-1a47a.firebaseio.com/");
+    private Firebase firebase = APIManager.getInstance().getFirebase();
 
     private DAO() {
     }
@@ -43,7 +43,7 @@ public class DAO {
             @Override
             public void onCompleted(JSONObject fbUser, GraphResponse graphResponse) {
                 User user = new User((fbUser.optString("name")), fbUser.optString("id"));
-                firebaseRef.setValue(user);
+                firebase.setValue(user);
             }
         }).executeAsync();
     }
