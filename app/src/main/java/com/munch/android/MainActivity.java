@@ -1,10 +1,6 @@
 package com.munch.android;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,8 +8,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Base64;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,9 +17,6 @@ import com.firebase.client.Firebase;
 import com.munch.android.event.Event;
 import com.munch.android.flow.MunchFlow;
 import com.munch.android.view.ViewFragment;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 
 
 public class MainActivity extends AppCompatActivity
@@ -37,9 +28,8 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getKeyHash(this);
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        Firebase.setAndroidContext(this);
+        // Setup flow controller
+        munchFlow = new MunchFlow(this, R.id.main_fragment_placeholder);
 
         setContentView(R.layout.activity_main);
 
@@ -55,8 +45,6 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        // Setup flow controller
-        munchFlow = new MunchFlow(this, R.id.main_fragment_placeholder);
     }
 
     @Override
@@ -130,35 +118,5 @@ public class MainActivity extends AppCompatActivity
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         munchFlow.getPresenter().getViewFragment().onActivityResult(requestCode, resultCode, data);
-    }
-
-    public static String getKeyHash(Context context) {
-        PackageInfo packageInfo;
-        String key = null;
-        try {
-            // Get application package name as defined in manifest
-            String packageName = context.getApplicationContext().getPackageName();
-
-            // Retrieve package info
-            packageInfo = context.getPackageManager().getPackageInfo(packageName,
-                    PackageManager.GET_SIGNATURES);
-
-            Log.d("Package Name=", context.getApplicationContext().getPackageName());
-
-            for (Signature signature : packageInfo.signatures) {
-                MessageDigest md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                key = new String(Base64.encode(md.digest(), 0));
-                Log.d("Key Hash=", key);
-            }
-        } catch (PackageManager.NameNotFoundException e1) {
-            Log.e("Name not found", e1.toString());
-        } catch (NoSuchAlgorithmException e) {
-            Log.e("No such an algorithm", e.toString());
-        } catch (Exception e) {
-            Log.e("Exception", e.toString());
-        }
-
-        return key;
     }
 }
