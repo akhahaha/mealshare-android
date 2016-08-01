@@ -4,7 +4,11 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v4.app.FragmentActivity;
 
+import com.facebook.AccessToken;
 import com.munch.android.R;
+import com.munch.android.data.FacebookDAO;
+import com.munch.android.data.UserQueryCallback;
+import com.munch.android.model.User;
 
 /**
  * Munch flow controller
@@ -16,19 +20,24 @@ public class MunchFlow extends FlowController {
     public MunchFlow(FragmentActivity activity, int resourceID) {
         super(activity, resourceID);
 
-        // Initialize user session and preferences
-        SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        currUID = settings.getString(getActivity().getString(R.string.pref_curr_uid), null);
+        // Verify Facebook login
+        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+        if (accessToken == null) {
+            // Not logged in
+            setPresenter(new LoginPresenter(getActivity()));
+        } else {
+            // Logged in
+            FacebookDAO.getInstance().generateMunchUser(accessToken, new UserQueryCallback() {
+                @Override
+                public void onCompleted(User user) {
+                    setPresenter(new DashboardPresenter(getActivity(), user.getId()));
+                }
 
-        // Not logged in
-//        if (currUID == null) {
-//            // Start login and onboarding
-//            setPresenter(new LoginPresenter(getActivity()));
-//        } else {
-//            // Logged in
-//            setPresenter(new DashboardPresenter(getActivity(), currUID));
-//        }
-
-        setPresenter(new DashboardPresenter(getActivity(), "1234")); // Temporary hardcoded UID
+                @Override
+                public void onFailed() {
+                    setPresenter(new LoginPresenter(getActivity()));
+                }
+            });
+        }
     }
 }
