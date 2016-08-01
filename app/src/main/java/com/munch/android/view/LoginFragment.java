@@ -55,24 +55,22 @@ public class LoginFragment extends ViewFragment {
         rootView = inflater.inflate(R.layout.fragment_login, container, false);
 
         LoginButton loginButton = (LoginButton) rootView.findViewById(R.id.fb_login_button);
+        loginButton.setFragment(this);
         callbackManager = CallbackManager.Factory.create();
         loginButton.registerCallback(callbackManager,
                 new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
-                        System.out.println("success");
                         notifyListener(new FacebookLoginEvent(EVENT_FB_LOGIN_SUCCESS,
                                 loginResult.getAccessToken()));
                     }
 
                     @Override
                     public void onCancel() {
-
                     }
 
                     @Override
                     public void onError(FacebookException error) {
-
                     }
                 });
 
@@ -82,7 +80,6 @@ public class LoginFragment extends ViewFragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        System.out.println("result");
         callbackManager.onActivityResult(requestCode, resultCode, data);
     }
 }
