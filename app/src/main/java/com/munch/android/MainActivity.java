@@ -1,6 +1,5 @@
 package com.munch.android;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -8,28 +7,16 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.facebook.FacebookSdk;
-import com.firebase.client.Firebase;
-import com.munch.android.event.Event;
-import com.munch.android.flow.MunchFlow;
-import com.munch.android.view.ViewFragment;
-
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener,
-        ViewFragment.OnFragmentInteractionListener {
-    private MunchFlow munchFlow;
+        implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        // Setup flow controller
-        munchFlow = new MunchFlow(this, R.id.main_fragment_placeholder);
 
         setContentView(R.layout.activity_main);
 
@@ -102,21 +89,5 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
-    }
-
-    @Override
-    public void onFragmentInteraction(Event event) {
-        munchFlow.handleEvent(event);
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        return munchFlow.handleEvent(event) || super.onKeyDown(keyCode, event);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        munchFlow.getPresenter().getViewFragment().onActivityResult(requestCode, resultCode, data);
     }
 }
