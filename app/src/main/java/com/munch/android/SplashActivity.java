@@ -31,7 +31,7 @@ public class SplashActivity extends AppCompatActivity {
             FacebookDAO.getInstance().generateMunchUser(accessToken, new UserQueryCallback() {
                 @Override
                 public void onCompleted(User user) {
-                    startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                    startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
                     finish();
                 }
 
