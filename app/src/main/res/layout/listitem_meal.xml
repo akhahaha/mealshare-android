@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="88dp"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/meal_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/restaurant_name"
+        android:layout_marginRight="2dp"
+        android:layout_toStartOf="@+id/meal_relative_time"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/placeholder_meal_title"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@android:color/black"
+        tools:ignore="RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/restaurant_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/meal_title"
+        android:layout_centerVertical="true"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/placeholder_restaurant_name"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    <TextView
+        android:id="@+id/restaurant_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/restaurant_name"
+        android:layout_marginRight="2dp"
+        android:layout_toStartOf="@+id/host_indicator"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/placeholder_location"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        tools:ignore="RtlHardcoded" />
+
+    <TextView
+        android:id="@+id/meal_relative_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/restaurant_name"
+        android:layout_toStartOf="@+id/restaurant_thumbnail"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:text="@string/placeholder_relative_time"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/host_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/restaurant_location"
+        android:layout_toStartOf="@+id/restaurant_thumbnail"
+        android:text="@string/label_host"
+        android:textAllCaps="true"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="@color/colorAccent" />
+
+    <ImageView
+        android:id="@+id/restaurant_thumbnail"
+        android:layout_width="@dimen/thumbnail_size"
+        android:layout_height="@dimen/thumbnail_size"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:background="@color/colorIcons"
+        android:contentDescription="@string/content_desc_restaurant_thumbnail"
+        android:scaleType="fitCenter"
+        android:src="@mipmap/logo_plain"
+        tools:ignore="RtlHardcoded" />
+
+</RelativeLayout>

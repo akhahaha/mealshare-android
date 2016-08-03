@@ -42,4 +42,5 @@ dependencies {
     compile 'com.facebook.android:facebook-android-sdk:4.7.0'
     compile 'com.firebase:firebase-client-android:2.5.2'
     compile 'com.yelp.clientlib:yelp-android:2.0.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
 }
