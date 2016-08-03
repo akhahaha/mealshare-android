@@ -7,8 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import com.facebook.AccessToken;
 import com.facebook.FacebookSdk;
 import com.firebase.client.Firebase;
-import com.munch.android.data.FacebookDAO;
-import com.munch.android.data.UserQueryCallback;
+import com.munch.android.data.Callback;
+import com.munch.android.data.Facebook;
 import com.munch.android.model.User;
 
 public class SplashActivity extends AppCompatActivity {
@@ -28,15 +28,15 @@ public class SplashActivity extends AppCompatActivity {
             finish();
         } else {
             // Logged in
-            FacebookDAO.getInstance().generateMunchUser(accessToken, new UserQueryCallback() {
+            Facebook.getUser(accessToken, new Callback<User>() {
                 @Override
-                public void onCompleted(User user) {
+                public void onResponse(User user) {
                     startActivity(new Intent(getApplicationContext(), DashboardActivity.class));
                     finish();
                 }
 
                 @Override
-                public void onFailed() {
+                public void onFailed(Exception e) {
                     startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                     finish();
                 }

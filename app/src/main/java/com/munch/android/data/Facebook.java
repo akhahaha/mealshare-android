@@ -11,25 +11,16 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * Facebook data access object
+ * Facebook API wrapper
  * Created by Alan on 7/31/2016.
  */
-public class FacebookDAO {
-    private static FacebookDAO ourInstance = new FacebookDAO();
-
-    public static FacebookDAO getInstance() {
-        return ourInstance;
-    }
-
-    private FacebookDAO() {
-    }
-
+public class Facebook {
     /**
      * Gets a Munch User from a Facebook access token
      *
      * @param accessToken User's Facebook access token
      */
-    public void generateMunchUser(AccessToken accessToken, final UserQueryCallback callback) {
+    public static void getUser(AccessToken accessToken, final Callback<User> callback) {
         GraphRequest request = GraphRequest.newMeRequest(
                 accessToken,
                 new GraphRequest.GraphJSONObjectCallback() {
@@ -39,9 +30,9 @@ public class FacebookDAO {
                             User user = new User();
                             user.setId(data.getString("id"));
                             user.setFirstName(data.getString("first_name"));
-                            user.setPicture(data.getJSONObject("picture").getJSONObject("data")
+                            user.setPictureUrl(data.getJSONObject("picture").getJSONObject("data")
                                     .getString("url"));
-                            callback.onCompleted(user);
+                            callback.onResponse(user);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

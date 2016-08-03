@@ -8,16 +8,9 @@ public class User {
     private String id; // FBID
     private String firstName;
     private String aboutMe;
-    private String picture;
+    private String pictureUrl;
 
     public User() {
-    }
-
-    public User(String id, String firstName, String aboutMe, String picture) {
-        this.id = id;
-        this.firstName = firstName;
-        this.aboutMe = aboutMe;
-        this.picture = picture;
     }
 
     public String getId() {
@@ -44,12 +37,23 @@ public class User {
         this.aboutMe = aboutMe;
     }
 
-    public String getPicture() {
-        return picture;
+    public String getPictureUrl() {
+        return pictureUrl;
     }
 
-    public void setPicture(String picture) {
-        this.picture = picture;
+    public void setPictureUrl(String pictureUrl) {
+        this.pictureUrl = pictureUrl;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        User user = (User) o;
+
+        return id.equals(user.id);
+
     }
 
     @Override
@@ -58,7 +62,7 @@ public class User {
                 "id='" + id + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", aboutMe='" + aboutMe + '\'' +
-                ", picture='" + picture + '\'' +
+                ", pictureUrl='" + pictureUrl + '\'' +
                 '}';
     }
 }
