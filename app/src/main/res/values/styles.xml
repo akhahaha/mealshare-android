@@ -20,4 +20,22 @@
     <style name="SplashTheme" parent="AppTheme.NoActionBar">
         <item name="android:windowBackground">@drawable/background_splash</item>
     </style>
+
+    <style name="FieldGroup">
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:paddingRight">@dimen/activity_horizontal_margin</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <style name="FieldGroupIcon">
+        <item name="android:layout_width">@dimen/field_icon_size</item>
+        <item name="android:layout_height">@dimen/field_icon_size</item>
+        <item name="android:layout_margin">@dimen/field_icon_margin</item>
+    </style>
+
+    <style name="FieldGroupElement">
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginLeft">8dp</item>
+    </style>
 </resources>

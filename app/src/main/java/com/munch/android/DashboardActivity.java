@@ -1,5 +1,7 @@
 package com.munch.android;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -21,6 +23,8 @@ import com.munch.android.widget.MealListAdapter;
 
 public class DashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private static final int REQUEST_MEAL_CREATE = 1;
+
     private Session session;
 
     private MealListAdapter upcomingMealListAdapter;
@@ -47,12 +51,14 @@ public class DashboardActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton mealCreateFab =
+                (FloatingActionButton) findViewById(R.id.meal_create_fab);
+        mealCreateFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                startActivityForResult(
+                        new Intent(getApplicationContext(), MealCreateActivity.class),
+                        REQUEST_MEAL_CREATE);
             }
         });
 
@@ -138,5 +144,18 @@ public class DashboardActivity extends AppCompatActivity
                 e.printStackTrace();
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode) {
+            case REQUEST_MEAL_CREATE:
+                if (resultCode == Activity.RESULT_OK) {
+                    updateDisplay();
+                }
+                break;
+            default:
+                super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 }

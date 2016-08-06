@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.munch.android.MealCreateActivity"
+    tools:showIn="@layout/activity_meal_create">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@drawable/divider_horizontal"
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+        <LinearLayout
+            style="@style/FieldGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                style="@style/FieldGroupIcon"
+                android:contentDescription="@string/content_desc_restaurant_field_icon"
+                android:scaleType="fitCenter"
+                android:src="@android:drawable/ic_dialog_map"
+                android:tint="@android:color/darker_gray" />
+
+            <LinearLayout
+                style="@style/FieldGroupElement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <AutoCompleteTextView
+                    android:id="@+id/field_restaurant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_select_restaurant" />
+
+                <TextView
+                    android:id="@+id/restaurant_address"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/placeholder_restaurant_address" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/FieldGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                style="@style/FieldGroupIcon"
+                android:contentDescription="@string/content_desc_restaurant_field_icon"
+                android:scaleType="fitCenter"
+                android:src="@android:drawable/ic_menu_today"
+                android:tint="@android:color/darker_gray" />
+
+            <LinearLayout
+                style="@style/FieldGroupElement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/date_begin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:gravity="center_vertical|left"
+                        android:paddingBottom="8dp"
+                        android:paddingTop="8dp"
+                        android:text="@string/placeholder_date_begin"
+                        tools:ignore="RtlHardcoded" />
+
+                    <TextView
+                        android:id="@+id/time_begin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:gravity="center_vertical|right"
+                        android:paddingBottom="8dp"
+                        android:paddingTop="8dp"
+                        android:text="@string/placeholder_time_begin"
+                        tools:ignore="RtlHardcoded" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/date_end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:gravity="center_vertical|left"
+                        android:paddingBottom="8dp"
+                        android:paddingTop="8dp"
+                        android:text="@string/placeholder_time_end"
+                        tools:ignore="RtlHardcoded" />
+
+                    <TextView
+                        android:id="@+id/time_end"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.5"
+                        android:background="?attr/selectableItemBackground"
+                        android:clickable="true"
+                        android:gravity="center_vertical|right"
+                        android:paddingBottom="8dp"
+                        android:paddingTop="8dp"
+                        android:text="@string/placeholder_time_end"
+                        tools:ignore="RtlHardcoded" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/FieldGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <View style="@style/FieldGroupIcon" />
+
+            <LinearLayout
+                style="@style/FieldGroupElement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.5"
+                    android:gravity="center_vertical|left"
+                    android:text="@string/label_max_party_size"
+                    tools:ignore="RtlHardcoded" />
+
+                <EditText
+                    android:id="@+id/meal_party_max_field"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0"
+                    android:gravity="center_vertical|right"
+                    android:inputType="number"
+                    android:text="0"
+                    tools:ignore="RtlHardcoded" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/FieldGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                style="@style/FieldGroupIcon"
+                android:contentDescription="@string/content_desc_restaurant_field_icon"
+                android:scaleType="fitCenter"
+                android:src="@android:drawable/ic_menu_info_details"
+                android:tint="@android:color/darker_gray" />
+
+            <EditText
+                android:id="@+id/meal_description_field"
+                style="@style/FieldGroupElement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:hint="@string/hint_meal_description" />
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

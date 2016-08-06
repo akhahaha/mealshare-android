@@ -4,6 +4,7 @@
 
     <string name="title_activity_login">Login</string>
     <string name="title_activity_dashboard">Munch</string>
+    <string name="title_activity_meal_create">Create Meal</string>
 
     <string name="pref_file_name">com.munch.android.PREFERENCES</string>
     <string name="pref_key_curr_uid">PREF_KEY_CURR_UID</string>
@@ -12,17 +13,33 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="action_create">Create</string>
 
     <string name="content_desc_munch_logo">Munch logo</string>
     <string name="content_desc_restaurant_thumbnail">Restaurant thumbnail</string>
+    <string name="content_desc_header_image">Header image</string>
+    <string name="content_desc_restaurant_field_icon">Restaurant field icon</string>
+
+    <string name="hint_meal_title">Meal Title</string>
+    <string name="hint_select_restaurant">Select a restaurant</string>
+    <string name="hint_meal_description">Description</string>
 
     <string name="label_upcoming_meals">Upcoming Meals</string>
     <string name="label_host">Host</string>
     <string name="label_relative_time_now">Now</string>
+    <string name="label_create">Create</string>
+    <string name="label_max_party_size">Max party size</string>
 
     <string name="placeholder_meal_title">Meal Title</string>
     <string name="placeholder_restaurant_name">Restaurant Name</string>
     <string name="placeholder_location">Location</string>
     <string name="placeholder_relative_time">Relative Time</string>
+    <string name="placeholder_date_begin">Date Begin</string>
+    <string name="placeholder_date_end">Date End</string>
+    <string name="placeholder_time_begin">Time Begin</string>
+    <string name="placeholder_time_end">Time End</string>
+    <string name="placeholder_party_size">Party Size</string>
+    <string name="placeholder_restaurant_address">Restaurant address</string>
+    <string name="placeholder_restaurant_neighborhood">Restaurant neighborhood</string>
 
 </resources>
