@@ -5,6 +5,7 @@
     <string name="title_activity_login">Login</string>
     <string name="title_activity_dashboard">Munch</string>
     <string name="title_activity_meal_create">Create Meal</string>
+    <string name="title_activity_meal_details">Meal Details</string>
 
     <string name="pref_file_name">com.munch.android.PREFERENCES</string>
     <string name="pref_key_curr_uid">PREF_KEY_CURR_UID</string>
@@ -13,12 +14,16 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="action_edit">Edit</string>
     <string name="action_create">Create</string>
+    <string name="action_rsvp">RSVP</string>
+    <string name="action_rsvp_cancel">Cancel RSVP</string>
 
     <string name="content_desc_munch_logo">Munch logo</string>
     <string name="content_desc_restaurant_thumbnail">Restaurant thumbnail</string>
     <string name="content_desc_header_image">Header image</string>
     <string name="content_desc_restaurant_field_icon">Restaurant field icon</string>
+    <string name="content_desc_attendee_thumbnail">Attendee thumbnail</string>
 
     <string name="hint_meal_title">Meal Title</string>
     <string name="hint_select_restaurant">Select a restaurant</string>
@@ -29,6 +34,9 @@
     <string name="label_relative_time_now">Now</string>
     <string name="label_create">Create</string>
     <string name="label_max_party_size">Max party size</string>
+    <string name="label_hosted_by">Hosted by %1$s</string>
+    <string name="label_hosted_by_you">Hosted by you</string>
+    <string name="label_attendees">Attendees</string>
 
     <string name="placeholder_meal_title">Meal Title</string>
     <string name="placeholder_restaurant_name">Restaurant Name</string>
@@ -41,5 +49,6 @@
     <string name="placeholder_party_size">Party Size</string>
     <string name="placeholder_restaurant_address">Restaurant address</string>
     <string name="placeholder_restaurant_neighborhood">Restaurant neighborhood</string>
+    <string name="placeholder_meal_description">Meal description</string>
 
 </resources>

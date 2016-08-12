@@ -22,6 +22,7 @@ import android.widget.TimePicker;
 import com.munch.android.data.Callback;
 import com.munch.android.data.MunchDAO;
 import com.munch.android.data.Yelp;
+import com.munch.android.intent.MealDetailsIntent;
 import com.munch.android.model.Coordinates;
 import com.munch.android.model.Meal;
 import com.munch.android.model.Restaurant;
@@ -247,6 +248,8 @@ public class MealCreateActivity extends AppCompatActivity {
                                 getParent().setResult(Activity.RESULT_OK);
                             }
                             setResult(Activity.RESULT_OK);
+                            // Go to meal details
+                            startActivity(new MealDetailsIntent(getApplicationContext(), meal));
                             finish();
                         }
 

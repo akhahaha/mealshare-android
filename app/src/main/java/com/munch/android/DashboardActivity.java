@@ -13,17 +13,19 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.munch.android.data.Callback;
 import com.munch.android.data.MunchDAO;
-import com.munch.android.model.Meal;
+import com.munch.android.intent.MealDetailsIntent;
 import com.munch.android.util.MealList;
 import com.munch.android.widget.MealListAdapter;
 
 public class DashboardActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private static final int REQUEST_MEAL_CREATE = 1;
+    private static final int REQUEST_MEAL_DETAILS = 2;
 
     private Session session;
 
@@ -45,6 +47,13 @@ public class DashboardActivity extends AppCompatActivity
         // Initialize upcoming meals list
         upcomingMealListAdapter = new MealListAdapter(getBaseContext());
         upcomingMealsList.setAdapter(upcomingMealListAdapter);
+        upcomingMealsList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivityForResult(new MealDetailsIntent(getApplicationContext(),
+                        upcomingMealListAdapter.getItem(position)), REQUEST_MEAL_DETAILS);
+            }
+        });
 
         updateDisplay();
 
@@ -150,6 +159,7 @@ public class DashboardActivity extends AppCompatActivity
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {
             case REQUEST_MEAL_CREATE:
+            case REQUEST_MEAL_DETAILS:
                 if (resultCode == Activity.RESULT_OK) {
                     updateDisplay();
                 }

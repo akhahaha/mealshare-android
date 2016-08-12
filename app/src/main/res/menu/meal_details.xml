@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.munch.android.MealDetailsActivity">
+    <item
+        android:id="@+id/action_rsvp"
+        android:orderInCategory="0"
+        android:title="@string/action_rsvp"
+        android:visible="false"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_rsvp_cancel"
+        android:orderInCategory="1"
+        android:title="@string/action_rsvp_cancel"
+        android:visible="false"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_edit"
+        android:orderInCategory="100"
+        android:title="@string/action_edit"
+        android:visible="false"
+        app:showAsAction="always" />
+</menu>
